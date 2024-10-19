@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
 })
 export class GifsService {
   private _tagsHistory: string[] = [];
-  private apiKey = 'fxsW6vDUYRrR2F8rPRdO0Sx8Uj2SDSvd';
+  private apiKey = '';
   private pageSize = '10';
   private urlPath = 'https://api.giphy.com/v1/gifs/search';
   constructor(private http: HttpClient) {}
