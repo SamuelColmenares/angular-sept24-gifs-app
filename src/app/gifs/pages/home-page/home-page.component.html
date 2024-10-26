@@ -3,6 +3,69 @@
     <gifs-search-box></gifs-search-box>
   </div>
   <div class="col-12 pt-2">
-    <gifs-card-list></gifs-card-list>
+    <p *ngIf="gifs.length === 0 && !isInit" class="text-danger">
+      No se encontraron resultados pa la búsqueda
+    </p>
+    <gifs-card-list [gifs]="gifs"></gifs-card-list>
+  </div>
+</div>
+<hr class="mt-6">
+<h2>PIPES</h2>
+<div class="container p-3 m-2">
+  <div class="row">
+    <div class="col-12 text-center">
+      <h3>Strings</h3>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-4 col-sm-12 card">
+      <h4>Uppercase</h4>
+      <p>
+        {{ nameLower | uppercase }}
+      </p>
+      <p>
+        {{ nameLower }}
+      </p>
+    </div>
+    <div class="col-md-4 col-sm-12 card">
+      <h4>Lowercase</h4>
+      <p>
+        {{ nameUpper | lowercase }}
+      </p>
+    </div>
+    <div class="col-md-4 col-sm-12 card">
+      <h4>titlecase</h4>
+      <p>
+        {{ fullName | titlecase }}
+      </p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12 text-center">
+      <h3>Strings</h3>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6 card">
+      <h4>Formatos fecha</h4>
+      <ol>
+        <li>{{date}}</li>
+        <li>{{date | date}}</li>
+        <li>{{date | date:'short'}}</li>
+        <li>{{date | date:'long'}}</li>
+        <li>{{date | date:'MMMM'}}</li>
+        <li>{{date | date:'MMMM dd, yyyy'}}</li>
+      </ol>
+    </div>
+    <div class="col-md-6 card">
+      <h4>formato fecha HH</h4>
+      <ol>
+        <li>{{date | date:'long':'GMT-6'}}</li>
+        <li>{{date | date:'long':'GMT-4'}}</li>
+        <li>{{date | date:'long':'':'es-HN'}}</li>
+        <li>{{date | date:'long':'':'en-US'}}</li>
+        <li>{{date | date:'long':'':'fr:CA'}}</li>
+      </ol>
+    </div>
   </div>
 </div>
