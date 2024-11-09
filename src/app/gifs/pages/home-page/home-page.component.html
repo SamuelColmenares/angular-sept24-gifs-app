@@ -64,8 +64,58 @@
         <li>{{date | date:'long':'GMT-4'}}</li>
         <li>{{date | date:'long':'':'es-HN'}}</li>
         <li>{{date | date:'long':'':'en-US'}}</li>
-        <li>{{date | date:'long':'':'fr:CA'}}</li>
+        <li>{{date | date:'long':'':'fr-CA'}}</li>
       </ol>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col card">
+      <h4>Formatos Numero</h4>
+      <ol>
+        <li>Total ventas: {{(totalSells + 1234) | number:'1.1-2':'es-CO'}}</li>
+        <li>Porcentaje: {{percent | percent: '1.1-1'}}</li>
+        <li>Ventas brutas: {{totalSells | currency:'EUR':'symbol-narrow':'1.2-2' }}</li>
+      </ol>
+    </div>
+
+  </div>
+  <div class="row">
+    <div class="col card m-4">
+      <h4>Formatos especiales i18nSelect</h4>
+      <p>
+        Saludos {{ nameLower | titlecase }},
+        es un placer
+        {{ gender | i18nSelect:invitationMap }}
+        a nuestro evento
+      </p>
+      <button
+      (click)="changeClient()"
+      class="btn btn-primary"
+      >Cambiar Persona</button>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col card m-4">
+      <h4>Formatos especiales i18nPlural</h4>
+      <p>
+        Actualmente {{ clients.length |i18nPlural:clientMap }}.
+      </p>
+      <button
+      (click)="deleteClient()"
+      class="btn btn-primary"
+      >Borrar cliente</button>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col card m-4 p-2">
+      <h4>Resultados cuenta de ahorros</h4>
+      <p>Hola {{ nombre }}, <br>
+      a la fecha {{ fecha }} tienes un saldo en tu cuenta de ahorros de:<br>
+      {{ saldo }}
+      Saludos.
+      </p>
+      <button>Cambiar Nombre</button>
+      <button>Cambiar Saldo</button>
     </div>
   </div>
 </div>
